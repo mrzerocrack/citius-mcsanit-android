@@ -122,8 +122,8 @@ interface ApiInterface {
         }.build()
         val instance by lazy {
             Retrofit.Builder()
-//                .baseUrl("https://mcsanit.citius.co.id/api/")
-                .baseUrl("http://192.168.100.6/api/")
+                .baseUrl("https://mcsanit.citius.co.id/api/")
+//                .baseUrl("http://192.168.100.6/api/")
                 .client(client)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
