@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="navigation_theme">
+
+        <item name="android:textSize">20sp</item>
+        <item name="android:layout_marginBottom">5dp</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:windowTranslucentStatus">true</item>
+    </style>
+</resources>

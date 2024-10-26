@@ -1,0 +1,11 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.McSanit" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <item name="colorPrimary">@color/blue_citius</item>
+        <item name="colorPrimaryVariant">@color/blue_citius</item>
+        <item name="android:statusBarColor">@color/blue_citius</item>
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:windowBackground">@color/white</item>
+    </style>
+</resources>

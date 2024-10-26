@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "706177239940",
+    "project_id": "mcsanit",
+    "storage_bucket": "mcsanit.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:706177239940:android:0f8ce1e9ed388c27102bd1",
+        "android_client_info": {
+          "package_name": "com.citius.mcsanit"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD8pTfuBflsHVvUQYuBc3JCDmzHaMa0fCA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

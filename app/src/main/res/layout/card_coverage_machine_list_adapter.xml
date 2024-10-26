@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/card_list"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp"
+    app:cardBackgroundColor="@android:color/white"
+    app:strokeColor="@android:color/holo_red_dark"
+    app:cardCornerRadius="15dp"
+    app:strokeWidth="15dp"
+    >
+
+    <LinearLayout
+        android:id="@+id/task_list_open_card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="25dp"
+        android:paddingVertical="20dp"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="start"
+            android:id="@+id/container_task_list_open_atm_code">
+            <TextView
+                android:id="@+id/card_coverage_atm_code"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="@android:color/white"
+                android:textStyle="bold"
+                android:background="@drawable/circular_textview"
+                android:backgroundTint="@color/blue_citius"
+                android:padding="10dp"
+                tools:text="ATM CODE"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Area: "
+                android:minWidth="60dp"/>
+            <TextView
+                android:id="@+id/card_coverage_area_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/black"
+                tools:text="Jakarta" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="City: "
+                android:minWidth="60dp"/>
+
+            <TextView
+                android:id="@+id/card_coverage_city_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/black"
+                tools:text="Jakarta" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Location: "
+                android:minWidth="60dp"/>
+
+            <TextView
+                android:id="@+id/card_coverage_city_detail_location_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/black"
+                tools:text="Alfamart Mampang 1" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Building: "
+                android:minWidth="60dp"/>
+
+            <TextView
+                android:id="@+id/card_coverage_building_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/black"
+                tools:text="Bandara" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Address: "
+                android:minWidth="60dp"/>
+
+            <TextView
+                android:id="@+id/card_coverage_address"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/black"
+                tools:text="Jl Hj Ilyas no 34 RT 02 / RW 008 Depan SMK TGI Jl Hj Ilyas no 34 RT 02 / RW 008 Depan SMK TGI" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="PIC: "
+                android:minWidth="60dp"/>
+
+            <TextView
+                android:id="@+id/card_coverage_pic_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/black"
+                tools:text="M Rafialdi Putra Safira" />
+        </LinearLayout>
+    </LinearLayout>
+
+
+</android.support.v7.widget.CardView>

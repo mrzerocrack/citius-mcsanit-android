@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/main_frame"
+    tools:context=".fragment.task.FragmentTaskFormFinish">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:contentDescription="Scroll view for alll check list job report">
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:id="@+id/container_atm_info"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/blue_citius"
+                    android:orientation="vertical">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:layout_marginBottom="20dp"
+                        android:orientation="vertical"
+                        android:padding="0dp">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/timer_text"
+                            android:textSize="60sp"
+                            android:text="00 : 00 : 00"
+                            android:textColor="@color/white"
+                            android:gravity="center"
+                            />
+                        <TextView
+                            android:id="@+id/atm_detail_atm_code"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="10dp"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/white"
+                            android:layout_marginTop="10dp"
+                            android:background="@drawable/circular_textview"
+                            android:backgroundTint="@color/blue_citius"
+                            tools:text="ATM CODE" />
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginBottom="20dp">
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingHorizontal="10dp"
+                            android:orientation="horizontal">
+                            <TextView
+                                android:layout_width="70dp"
+                                android:layout_height="wrap_content"
+                                android:text="Job Date"
+                                android:textSize="16sp"
+                                android:textColor="@color/white"
+                                />
+                            <TextView
+                                android:id="@+id/atm_detail_task_date"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                tools:text=": 19 mar 2024"
+                                android:textSize="16sp"
+                                android:textColor="@color/white"
+                                />
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingHorizontal="10dp"
+                            android:orientation="horizontal">
+                            <TextView
+                                android:layout_width="70dp"
+                                android:layout_height="wrap_content"
+                                android:text="Area"
+                                android:textSize="16sp"
+                                android:textColor="@color/white"
+                                />
+                            <TextView
+                                android:id="@+id/atm_detail_area"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                tools:text=": Jl damay raya no 9 RT 3 Rw 5 petukangan selatan pesanggrahan"
+                                android:textSize="16sp"
+                                android:textColor="@color/white"
+                                />
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginTop="5dp"
+                            android:paddingHorizontal="10dp">
+                            <TextView
+                                android:layout_width="70dp"
+                                android:layout_height="wrap_content"
+                                android:text="City"
+                                android:textSize="16sp"
+                                android:textColor="@color/white"
+                                />
+                            <TextView
+                                android:id="@+id/atm_detail_city"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                tools:text=": Jakarta selatan"
+                                android:textSize="16sp"
+                                android:textColor="@color/white"
+                                />
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginTop="5dp"
+                            android:paddingHorizontal="10dp">
+                            <TextView
+                                android:layout_width="70dp"
+                                android:layout_height="wrap_content"
+                                android:text="Loc"
+                                android:textSize="16sp"
+                                android:textColor="@color/white"
+                                />
+                            <TextView
+                                android:id="@+id/atm_detail_city_detail_loc"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                tools:text=": Alfamart Fatmawati 1"
+                                android:textSize="16sp"
+                                android:textColor="@color/white"
+                                />
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginTop="5dp"
+                            android:paddingHorizontal="10dp">
+                            <TextView
+                                android:layout_width="70dp"
+                                android:layout_height="wrap_content"
+                                android:text="Address"
+                                android:textSize="16sp"
+                                android:textColor="@color/white"
+                                />
+                            <TextView
+                                android:id="@+id/atm_detail_address"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                tools:text=": Jl Damai Raya no 9 RT 3 RW 5, petukangan selatan, pesanggrahan, Jakarta selatan"
+                                android:textSize="16sp"
+                                android:textColor="@color/white"
+                                />
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginTop="20dp"
+                            android:paddingHorizontal="10dp"
+                            android:gravity="center">
+                            <Button
+                                android:id="@+id/start_task_button"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Start"
+                                android:textColor="@color/black"
+                                android:visibility="gone"
+                                android:backgroundTint="@color/bg_task_finished"/>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginTop="20dp"
+                            android:paddingHorizontal="10dp"
+                            android:gravity="center">
+                            <TextView
+                                android:id="@+id/error_lokasi_text"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:visibility="gone"
+                                tools:text="Kami tidak dapat menemukan lokasi anda"
+                                android:textColor="@color/red"
+                                android:backgroundTint="@color/bg_task_finished"/>
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:id="@+id/parent_linear_task_form_finish"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="10dp">
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:weightSum="100"
+                    android:layout_height="wrap_content">
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="50"
+                        android:padding="10dp"
+                        android:gravity="center">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Kondisi Mesin"
+                            />
+                        <ImageView
+                            android:id="@+id/iv_kondisi_mesin"
+                            android:src="@drawable/ic_camera"
+                            android:backgroundTint="@color/grey_camera_bg"
+                            android:background="@color/grey_camera_bg"
+                            android:layout_width="match_parent"
+                            android:layout_height="200dp"
+                            />
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="50"
+                        android:padding="10dp"
+                        android:gravity="center">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Kondisi Ruangan"
+                            />
+                        <ImageView
+                            android:id="@+id/iv_ruangan"
+                            android:src="@drawable/ic_camera"
+                            android:backgroundTint="@color/grey_camera_bg"
+                            android:background="@color/grey_camera_bg"
+                            android:layout_width="match_parent"
+                            android:layout_height="200dp"
+                            />
+
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+
+    </LinearLayout>
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/submit_checklist_job"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_marginBottom="10dp"
+        android:layout_marginRight="20dp"
+        android:backgroundTint="@color/bg_task_reschedule_finished"
+        android:contentDescription="submit"
+        android:src="@drawable/ic_check_1"
+        app:tint="@color/white"
+        app:fabCustomSize="70dp"
+        app:maxImageSize="50dp"
+        />
+    <!--    <androidx.recyclerview.widget.RecyclerView-->
+    <!--        android:id="@+id/scrollViewChecklistJob"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginTop="70dp"-->
+    <!--        tools:listitem="@layout/card_checklist_job_form"-->
+    <!--        tools:itemCount="5"-->
+    <!--        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"-->
+    <!--        />-->
+
+</FrameLayout>
