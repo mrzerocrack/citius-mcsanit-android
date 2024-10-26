@@ -91,7 +91,11 @@ interface ApiInterface {
     fun submit_report_task(
         @QueryMap data: Map<String, String>,
         @Part photo_kondisi_mesin : MultipartBody.Part,
-        @Part photo_ruangan : MultipartBody.Part
+        @Part photo_ruangan : MultipartBody.Part,
+        @Part photo_lantai : MultipartBody.Part,
+        @Part photo_tempat_sampah : MultipartBody.Part,
+        @Part photo_kaca_ruangan : MultipartBody.Part,
+        @Part photo_meteran_listrik : MultipartBody.Part
     ) : Call<SubmitReportTaskResponse>
 
     @POST("submit_reschedule")
@@ -118,8 +122,8 @@ interface ApiInterface {
         }.build()
         val instance by lazy {
             Retrofit.Builder()
-                .baseUrl("https://mcsanit.citius.co.id/api/")
-//                .baseUrl("http://192.168.100.135/api/")
+//                .baseUrl("https://mcsanit.citius.co.id/api/")
+                .baseUrl("http://192.168.100.6/api/")
                 .client(client)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()

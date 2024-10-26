@@ -20,6 +20,7 @@ import android.widget.EditText
 import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.LinearLayout
+import android.widget.ProgressBar
 import android.widget.RadioButton
 import android.widget.RadioGroup
 import android.widget.TextView
@@ -78,10 +79,21 @@ class FragmentTaskFormFinish : Fragment() {
 
     var reschedule_data_form_input: String = ""
 
+    private lateinit var loading : ProgressBar
+
     lateinit var iv_kondisi_mesin : ImageView
     lateinit var iv_ruangan : ImageView
+    lateinit var iv_kondisi_lantai : ImageView
+    lateinit var iv_tempat_sampah : ImageView
+    lateinit var iv_kaca_ruangan : ImageView
+    lateinit var iv_meteran_listrik : ImageView
+
     var file_kondisi_mesin : File = File("")
     var file_ruangan : File = File("")
+    var file_kondisi_lantai : File = File("")
+    var file_tempat_sampah : File = File("")
+    var file_kaca_ruangan : File = File("")
+    var file_meteran_listrik : File = File("")
     var task_time: Double = 0.0
     var task_start_time: Long = 0.toLong()
     private lateinit var task_timerText: TextView
@@ -130,6 +142,7 @@ class FragmentTaskFormFinish : Fragment() {
         setupList()
         SetDataAtm()
         InitUI()
+
         CheckRadius(object: CalDistanceCallBack {
             override fun onSuccess() {
                 error_lokasi_text.visibility = TextView.GONE
@@ -193,12 +206,14 @@ class FragmentTaskFormFinish : Fragment() {
     }
 
     private fun InitUI() {
+        loading = view.findViewById(R.id.loading)
         error_lokasi_text = view.findViewById(R.id.error_lokasi_text)
         task_timerText = view.findViewById(R.id.timer_text)
         task_timerText.visibility = TextView.GONE
         dialog = Dialog(requireActivity())
         dialog.setContentView(R.layout.reschedule_task_dialog)
         dialog.window!!.setLayout(ViewGroup.LayoutParams.WRAP_CONTENT,ViewGroup.LayoutParams.WRAP_CONTENT)
+
         iv_kondisi_mesin = view.findViewById(R.id.iv_kondisi_mesin)
         iv_kondisi_mesin.setOnClickListener {
             open_camera_case = 1
@@ -207,6 +222,26 @@ class FragmentTaskFormFinish : Fragment() {
         iv_ruangan = view.findViewById(R.id.iv_ruangan)
         iv_ruangan.setOnClickListener {
             open_camera_case = 2
+            TakePicture()
+        }
+        iv_kondisi_lantai = view.findViewById(R.id.iv_kondisi_lantai)
+        iv_kondisi_lantai.setOnClickListener {
+            open_camera_case = 3
+            TakePicture()
+        }
+        iv_tempat_sampah = view.findViewById(R.id.iv_tempat_sampah)
+        iv_tempat_sampah.setOnClickListener {
+            open_camera_case = 4
+            TakePicture()
+        }
+        iv_kaca_ruangan = view.findViewById(R.id.iv_kaca_ruangan)
+        iv_kaca_ruangan.setOnClickListener {
+            open_camera_case = 5
+            TakePicture()
+        }
+        iv_meteran_listrik = view.findViewById(R.id.iv_meteran_listrik)
+        iv_meteran_listrik.setOnClickListener {
+            open_camera_case = 6
             TakePicture()
         }
 
@@ -312,6 +347,10 @@ class FragmentTaskFormFinish : Fragment() {
             when(open_camera_case){
                 1 -> iv_kondisi_mesin!!.setImageResource(R.drawable.ic_camera)
                 2 -> iv_ruangan!!.setImageResource(R.drawable.ic_camera)
+                3 -> iv_kondisi_lantai!!.setImageResource(R.drawable.ic_camera)
+                4 -> iv_tempat_sampah!!.setImageResource(R.drawable.ic_camera)
+                5 -> iv_kaca_ruangan!!.setImageResource(R.drawable.ic_camera)
+                6 -> iv_meteran_listrik!!.setImageResource(R.drawable.ic_camera)
             }
             set_blank_file(open_camera_case)
         }
@@ -319,6 +358,10 @@ class FragmentTaskFormFinish : Fragment() {
             when(open_camera_case){
                 1 -> iv_kondisi_mesin!!.setImageURI(file_kondisi_mesin.toUri())
                 2 -> iv_ruangan!!.setImageURI(file_ruangan.toUri())
+                3 -> iv_kondisi_lantai!!.setImageURI(file_kondisi_lantai.toUri())
+                4 -> iv_tempat_sampah!!.setImageURI(file_tempat_sampah.toUri())
+                5 -> iv_kaca_ruangan!!.setImageURI(file_kaca_ruangan.toUri())
+                6 -> iv_meteran_listrik!!.setImageURI(file_meteran_listrik.toUri())
             }
         }
         Log.d("PHOTOFILE TO ORU",file_kondisi_mesin.toUri().toString())
@@ -331,6 +374,10 @@ class FragmentTaskFormFinish : Fragment() {
         when(caseId){
             1 -> file_kondisi_mesin = File("")
             2 -> file_ruangan = File("")
+            3 -> file_kondisi_lantai = File("")
+            4 -> file_tempat_sampah = File("")
+            5 -> file_kaca_ruangan = File("")
+            6 -> file_meteran_listrik = File("")
 
         }
     }
@@ -357,6 +404,22 @@ class FragmentTaskFormFinish : Fragment() {
             2 -> {
                 file_ruangan = CreateImageFile()
                 fileStore = file_ruangan
+            }
+            3 -> {
+                file_kondisi_lantai = CreateImageFile()
+                fileStore = file_kondisi_lantai
+            }
+            4 -> {
+                file_tempat_sampah = CreateImageFile()
+                fileStore = file_tempat_sampah
+            }
+            5 -> {
+                file_kaca_ruangan = CreateImageFile()
+                fileStore = file_kaca_ruangan
+            }
+            6 -> {
+                file_meteran_listrik = CreateImageFile()
+                fileStore = file_meteran_listrik
             }
         }
         val uri = FileProvider.getUriForFile(requireActivity(), "com.citius.mcsanit.provider", fileStore)
@@ -406,14 +469,19 @@ class FragmentTaskFormFinish : Fragment() {
             }
 
         }
-        if (!file_kondisi_mesin.exists() || !file_ruangan.exists()){
+        if (!file_kondisi_mesin.exists() || !file_ruangan.exists() || !file_kondisi_lantai.exists() || !file_tempat_sampah.exists() || !file_kaca_ruangan.exists() || !file_meteran_listrik.exists()){
             Toast.makeText(requireContext(), "Make sure you take the picture to all required form", Toast.LENGTH_LONG).show()
             view.findViewById<FloatingActionButton>(R.id.submit_checklist_job).isEnabled = true
             return
         }
         val photo_kondisi_mesin = MultipartBody.Part.createFormData("photo_kondisi_mesin", file_kondisi_mesin.name, file_kondisi_mesin.asRequestBody("image/*".toMediaTypeOrNull()))
         val photo_ruangan = MultipartBody.Part.createFormData("photo_ruangan", file_ruangan.name, file_ruangan.asRequestBody("image/*".toMediaTypeOrNull()))
-        ApiInterface.instance.submit_report_task(map, photo_kondisi_mesin, photo_ruangan).enqueue(object : Callback<SubmitReportTaskResponse> {
+        val photo_lantai = MultipartBody.Part.createFormData("photo_lantai", file_kondisi_lantai.name, file_kondisi_lantai.asRequestBody("image/*".toMediaTypeOrNull()))
+        val photo_tempat_sampah = MultipartBody.Part.createFormData("photo_tempat_sampah", file_tempat_sampah.name, file_tempat_sampah.asRequestBody("image/*".toMediaTypeOrNull()))
+        val photo_kaca_ruangan = MultipartBody.Part.createFormData("photo_kaca_ruangan", file_kaca_ruangan.name, file_kaca_ruangan.asRequestBody("image/*".toMediaTypeOrNull()))
+        val photo_meteran_listrik = MultipartBody.Part.createFormData("photo_meteran_listrik", file_meteran_listrik.name, file_meteran_listrik.asRequestBody("image/*".toMediaTypeOrNull()))
+        loading.visibility = ProgressBar.VISIBLE
+        ApiInterface.instance.submit_report_task(map, photo_kondisi_mesin, photo_ruangan, photo_lantai, photo_tempat_sampah, photo_kaca_ruangan, photo_meteran_listrik).enqueue(object : Callback<SubmitReportTaskResponse> {
             override fun onResponse(p0: Call<SubmitReportTaskResponse>, p1: Response<SubmitReportTaskResponse>) {
                 if (p1.isSuccessful){
                     val stringResponse = p1.body()!!
@@ -425,12 +493,14 @@ class FragmentTaskFormFinish : Fragment() {
                 }else{
                     Toast.makeText(requireContext(), "SERVER ERROR SUBMIT JOB REPORT", Toast.LENGTH_SHORT).show()
                 }
+                loading.visibility = ProgressBar.GONE
                 view.findViewById<FloatingActionButton>(R.id.submit_checklist_job).isEnabled = true
             }
 
             override fun onFailure(p0: Call<SubmitReportTaskResponse>, p1: Throwable) {
                 Log.e("SFJKHSJKFHS", p1.toString())
                 view.findViewById<FloatingActionButton>(R.id.submit_checklist_job).isEnabled = true
+                loading.visibility = ProgressBar.GONE
             }
 
         })

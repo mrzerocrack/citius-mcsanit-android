@@ -37,6 +37,7 @@
                 android:id="@+id/db_team_name"
                 android:textSize="20sp"
                 android:gravity="center"
+                android:paddingHorizontal="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textStyle="bold"

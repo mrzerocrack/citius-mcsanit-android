@@ -261,6 +261,106 @@
 
                     </LinearLayout>
                 </LinearLayout>
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:weightSum="100"
+                    android:layout_height="wrap_content">
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="50"
+                        android:padding="10dp"
+                        android:gravity="center">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Kondisi Lantai"
+                            />
+                        <ImageView
+                            android:id="@+id/iv_kondisi_lantai"
+                            android:src="@drawable/ic_camera"
+                            android:backgroundTint="@color/grey_camera_bg"
+                            android:background="@color/grey_camera_bg"
+                            android:layout_width="match_parent"
+                            android:layout_height="200dp"
+                            />
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="50"
+                        android:padding="10dp"
+                        android:gravity="center">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Tempat Sampah"
+                            />
+                        <ImageView
+                            android:id="@+id/iv_tempat_sampah"
+                            android:src="@drawable/ic_camera"
+                            android:backgroundTint="@color/grey_camera_bg"
+                            android:background="@color/grey_camera_bg"
+                            android:layout_width="match_parent"
+                            android:layout_height="200dp"
+                            />
+
+                    </LinearLayout>
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:weightSum="100"
+                    android:layout_height="wrap_content">
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="50"
+                        android:padding="10dp"
+                        android:gravity="center">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Kaca Ruangan"
+                            />
+                        <ImageView
+                            android:id="@+id/iv_kaca_ruangan"
+                            android:src="@drawable/ic_camera"
+                            android:backgroundTint="@color/grey_camera_bg"
+                            android:background="@color/grey_camera_bg"
+                            android:layout_width="match_parent"
+                            android:layout_height="200dp"
+                            />
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="50"
+                        android:padding="10dp"
+                        android:gravity="center">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Meteran Listrik"
+                            />
+                        <ImageView
+                            android:id="@+id/iv_meteran_listrik"
+                            android:src="@drawable/ic_camera"
+                            android:backgroundTint="@color/grey_camera_bg"
+                            android:background="@color/grey_camera_bg"
+                            android:layout_width="match_parent"
+                            android:layout_height="200dp"
+                            />
+
+                    </LinearLayout>
+                </LinearLayout>
             </LinearLayout>
         </ScrollView>
 
@@ -279,6 +379,16 @@
         app:fabCustomSize="70dp"
         app:maxImageSize="50dp"
         />
+
+    <ProgressBar
+        android:id="@+id/loading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="64dp"
+        android:layout_marginBottom="64dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"/>
     <!--    <androidx.recyclerview.widget.RecyclerView-->
     <!--        android:id="@+id/scrollViewChecklistJob"-->
     <!--        android:layout_width="match_parent"-->
