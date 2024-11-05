@@ -25,6 +25,7 @@ class TaskResponse (
         var atm_loc_lon: String?,
         var date_reschedule_from: String?,
         var date_reschedule_to: String?,
-        var task_status_int: Int?
+        var task_status_int: Int?,
+        var manage_electric: Int?
     )
 }

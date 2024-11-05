@@ -107,6 +107,7 @@ class FragmentTaskFormFinish : Fragment() {
     var atm_code:String? = null
     var task_date:String? = null
     var task_id:Int? = null
+    var manage_electric:Int? = null
     var atm_loc_lat:Double by Delegates.notNull<Double>()
     var atm_loc_lon:Double by Delegates.notNull<Double>()
 
@@ -136,6 +137,7 @@ class FragmentTaskFormFinish : Fragment() {
         atm_code = data!!.getString("atm_code")
         task_date = data!!.getString("task_date")
         task_id = data!!.getInt("task_id")
+        manage_electric = data!!.getInt("manage_electric")
         atm_loc_lat = data!!.getDouble("atm_loc_lat")
         atm_loc_lon = data!!.getDouble("atm_loc_lon")
         requireActivity().setTitle("Job Report")
@@ -469,7 +471,7 @@ class FragmentTaskFormFinish : Fragment() {
             }
 
         }
-        if (!file_kondisi_mesin.exists() || !file_ruangan.exists() || !file_kondisi_lantai.exists() || !file_tempat_sampah.exists() || !file_kaca_ruangan.exists() || !file_meteran_listrik.exists()){
+        if (!file_kondisi_mesin.exists() || !file_ruangan.exists() || !file_kondisi_lantai.exists() || !file_tempat_sampah.exists() || !file_kaca_ruangan.exists()){
             Toast.makeText(requireContext(), "Make sure you take the picture to all required form", Toast.LENGTH_LONG).show()
             view.findViewById<FloatingActionButton>(R.id.submit_checklist_job).isEnabled = true
             return
@@ -479,7 +481,15 @@ class FragmentTaskFormFinish : Fragment() {
         val photo_lantai = MultipartBody.Part.createFormData("photo_lantai", file_kondisi_lantai.name, file_kondisi_lantai.asRequestBody("image/*".toMediaTypeOrNull()))
         val photo_tempat_sampah = MultipartBody.Part.createFormData("photo_tempat_sampah", file_tempat_sampah.name, file_tempat_sampah.asRequestBody("image/*".toMediaTypeOrNull()))
         val photo_kaca_ruangan = MultipartBody.Part.createFormData("photo_kaca_ruangan", file_kaca_ruangan.name, file_kaca_ruangan.asRequestBody("image/*".toMediaTypeOrNull()))
-        val photo_meteran_listrik = MultipartBody.Part.createFormData("photo_meteran_listrik", file_meteran_listrik.name, file_meteran_listrik.asRequestBody("image/*".toMediaTypeOrNull()))
+        var photo_meteran_listrik: MultipartBody.Part?= null
+        if (manage_electric == 1){
+            if (!file_meteran_listrik.exists()){
+                Toast.makeText(requireContext(), "Make sure you take the picture for Meteran Listrik", Toast.LENGTH_LONG).show()
+                view.findViewById<FloatingActionButton>(R.id.submit_checklist_job).isEnabled = true
+                return
+            }
+            photo_meteran_listrik = MultipartBody.Part.createFormData("photo_meteran_listrik", file_meteran_listrik.name, file_meteran_listrik.asRequestBody("image/*".toMediaTypeOrNull()))
+        }
         loading.visibility = ProgressBar.VISIBLE
         ApiInterface.instance.submit_report_task(map, photo_kondisi_mesin, photo_ruangan, photo_lantai, photo_tempat_sampah, photo_kaca_ruangan, photo_meteran_listrik).enqueue(object : Callback<SubmitReportTaskResponse> {
             override fun onResponse(p0: Call<SubmitReportTaskResponse>, p1: Response<SubmitReportTaskResponse>) {

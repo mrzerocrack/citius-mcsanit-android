@@ -95,7 +95,7 @@ interface ApiInterface {
         @Part photo_lantai : MultipartBody.Part,
         @Part photo_tempat_sampah : MultipartBody.Part,
         @Part photo_kaca_ruangan : MultipartBody.Part,
-        @Part photo_meteran_listrik : MultipartBody.Part
+        @Part photo_meteran_listrik : MultipartBody.Part?
     ) : Call<SubmitReportTaskResponse>
 
     @POST("submit_reschedule")

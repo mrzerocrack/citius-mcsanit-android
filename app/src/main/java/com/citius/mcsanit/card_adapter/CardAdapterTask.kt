@@ -37,6 +37,7 @@ class CardAdapterTask(
             bundle.putString("atm_code", task_list.atm_code.toString())
             bundle.putString("task_date", task_list.task_date.toString())
             bundle.putInt("task_id", task_list.task_id!!)
+            bundle.putInt("manage_electric", task_list.manage_electric!!)
             bundle.putDouble("atm_loc_lat", task_list.atm_loc_lat!!.toDouble())
             bundle.putDouble("atm_loc_lon", task_list.atm_loc_lon!!.toDouble())
             val fragmentTaskFormFinish = FragmentTaskFormFinish()
